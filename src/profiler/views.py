@@ -1,11 +1,21 @@
-from rest_framework.generics import RetrieveAPIView
-from django.shortcuts import render
-from .serializers import GetUserNetSerializer
+from rest_framework.viewsets import ModelViewSet
+from rest_framework import permissions
+from .serializers import GetUserNetSerializer, GetPublicUserNetSerializer
 from .models import UserNet
 
 
-# Create your views here.
-class GetUserNetView(RetrieveAPIView):
+class GetPubicUserNetView(ModelViewSet):
+    """Public information about user"""
+    serializer_class = GetPublicUserNetSerializer
+    permission_classes = [permissions.AllowAny]
+    queryset = UserNet.objects.all()
+
+
+class GetUserNetView(ModelViewSet):
     """Presentation info about user"""
-    queryset = UserNet
+
     serializer_class = GetUserNetSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get_queryset(self):
+        return UserNet.objects.filter(id=self.request.user.id)

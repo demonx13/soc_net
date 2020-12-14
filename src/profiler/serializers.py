@@ -4,7 +4,35 @@ from .models import UserNet
 
 
 class GetUserNetSerializer(serializers.ModelSerializer):
-    """Output info about user"""
+    """Output private info about user"""
+
+    avatar = serializers.ImageField(write_only=True)
+
     class Meta:
         model = UserNet
-        exclude = ("password", "last_login", "is_active", "is_staff", "is_superuser")
+        exclude = (
+            "password",
+            "last_login",
+            "is_active",
+            "is_staff",
+            "is_superuser",
+            "groups",
+            "user_permissions",
+        )
+
+
+class GetPublicUserNetSerializer(serializers.ModelSerializer):
+    """Output public info about user"""
+    class Meta:
+        model = UserNet
+        exclude = (
+            "phone",
+            "email",
+            "password",
+            "last_login",
+            "is_active",
+            "is_staff",
+            "groups",
+            'is_superuser',
+            "user_permissions",
+        )
