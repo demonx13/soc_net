@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'drf_yasg',
 
     'src.wall',
+    'src.followers',
+    'src.feed',
     'src.comments',
     'src.profiler',
 ]

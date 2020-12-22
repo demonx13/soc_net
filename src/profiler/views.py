@@ -5,14 +5,16 @@ from .models import UserNet
 
 
 class GetPubicUserNetView(ModelViewSet):
-    """Public information about user"""
+    """Public information about user
+    """
     serializer_class = GetPublicUserNetSerializer
     permission_classes = [permissions.AllowAny]
     queryset = UserNet.objects.all()
 
 
 class GetUserNetView(ModelViewSet):
-    """Presentation info about user"""
+    """Presentation info about user
+    """
 
     serializer_class = GetUserNetSerializer
     permission_classes = [permissions.IsAuthenticated]
