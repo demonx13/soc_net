@@ -14,7 +14,7 @@ class SocNetAdmin(UserAdmin):
             'fields': ('is_active', 'is_staff', 'is_superuser', 'groups', 'user_permissions'),
         }),
         (_('Important dates'), {'fields': ('last_login', 'date_joined')}),
-        (_('info'), {'fields': ('first_login', 'phone', 'gender',        'avatar')}),
+        (_('info'), {'fields': ('phone', 'gender',        'avatar')}),
     )
 
     list_display = ('username', 'email', 'first_name', 'last_name', 'phone', 'is_staff')

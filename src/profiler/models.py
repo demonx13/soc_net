@@ -5,7 +5,8 @@ from django.db import models
 # Create your models here.
 
 class UserNet(AbstractUser):
-    """Custom user model"""
+    """Custom user model
+    """
 
     GENDER = (
         ('male', 'male'),
@@ -20,3 +21,13 @@ class UserNet(AbstractUser):
     birthday = models.DateField(blank=True, null=True)
     github = models.CharField(max_length=500, blank=True, null=True)
     gender = models.CharField(max_length=6, choices=GENDER, default='male')
+    technology = models.ManyToManyField('Technology', related_name='users')
+
+
+class Technology(models.Model):
+    """Technology model"""
+
+    name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
