@@ -6,7 +6,7 @@ from .models import UserNet
 class GetUserNetSerializer(serializers.ModelSerializer):
     """Output private info about user"""
 
-    avatar = serializers.ImageField(write_only=True)
+    avatar = serializers.ImageField(read_only=True)
 
     class Meta:
         model = UserNet
@@ -41,7 +41,7 @@ class GetPublicUserNetSerializer(serializers.ModelSerializer):
 class UserByFollowerSerializer(serializers.ModelSerializer):
     """Followers serializer
     """
-    avatar = serializers.ImageField(read_only=True, )
+    avatar = serializers.ImageField(read_only=True)
 
     class Meta:
         model = UserNet

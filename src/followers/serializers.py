@@ -4,12 +4,12 @@ from .models import Follower
 from ..profiler.serializers import UserByFollowerSerializer
 
 
-class ListFollowerSerializer(serializers.ModelSerializer):
+class FollowerSerializer(serializers.ModelSerializer):
     """Return list of followers
     """
-    follower = UserByFollowerSerializer(many=True, read_only=True)
+    user = UserByFollowerSerializer(read_only=True)
 
     class Meta:
         model = Follower
-        fields = ("follower",)
+        fields = ("user",)
 
