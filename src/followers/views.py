@@ -32,7 +32,6 @@ class FollowerView(views.APIView):
             return response.Response(status=201)
         return response.Response(status=404)
 
-
     def delete(self, request, pk):
         try:
             sub = Follower.objects.get(follower=request.user, user_id=pk)

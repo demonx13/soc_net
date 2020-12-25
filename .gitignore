@@ -5,6 +5,9 @@ venv
 !*media/.gitkeep
 media/*
 
+
+.env.dev
+
 *.log
 *.pot
 *.pyc

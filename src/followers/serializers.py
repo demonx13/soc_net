@@ -1,5 +1,4 @@
 from rest_framework import serializers
-from ..profiler.models import UserNet
 from .models import Follower
 from ..profiler.serializers import UserByFollowerSerializer
 
@@ -12,4 +11,3 @@ class FollowerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Follower
         fields = ("user",)
-

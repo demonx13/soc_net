@@ -17,7 +17,7 @@ class SocNetAdmin(UserAdmin):
         (_('info'), {'fields': ('phone', 'gender',        'avatar')}),
     )
 
-    list_display = ('username', 'email', 'first_name', 'last_name', 'phone', 'is_staff')
+    list_display = ('id', 'username', 'email', 'first_name', 'last_name', 'phone', 'is_active', 'is_staff')
 
 
 admin.site.register(UserNet, SocNetAdmin)
