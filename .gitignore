@@ -5,7 +5,6 @@ venv
 !*media/.gitkeep
 media/*
 
-
 .env.dev
 
 *.log

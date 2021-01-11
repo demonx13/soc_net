@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'corsheaders',
     'rest_framework',
     'djoser',
     'mptt',
@@ -52,8 +53,10 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -184,6 +187,16 @@ SIMPLE_JWT = {
     'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=1),
 }
 
+SWAGGER_SETTINGS = {
+       'SECURITY_DEFINITIONS': {
+           ' JWT': {
+               'type': 'apiKey',
+               'in': 'header',
+               'name': 'Authorization'
+           }
+       },
+}
+
 
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:8000',
@@ -196,6 +209,11 @@ CORS_ORIGIN_WHITELIST = [
 
     'http://127.0.0.1:1313',
     'http://localhost:1313',
+
+    'http://127.0.0.1:4200',
+    'http://localhost:4200',
+    'http://localhost',
+
 ]
 
 
