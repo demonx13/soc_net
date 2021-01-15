@@ -9,9 +9,9 @@ class Command(BaseCommand):
     """command to create db elements for test workability
     """
     def handle(self, *args, **options):
-        # self.create_user()
-        # self.create_follower()
-        # self.create_posts()
+        self.create_user()
+        self.create_follower()
+        self.create_posts()
         self.stdout.write("Success")
 
     def create_user(self):

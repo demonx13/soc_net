@@ -18,9 +18,9 @@ COPY . /usr/src/app/
 
 RUN chmod 755 /usr/src/app/prestart.sh
 
-#
-#COPY ./entrypoint.sh .
-#
-#COPY . .
 
-#ENTRYPOINT = ["/usr/src/app/entrypoint.sh"]
+COPY ./entrypoint.sh .
+
+COPY . .
+
+ENTRYPOINT = ["/usr/src/app/entrypoint.sh"]
